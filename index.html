@@ -20,32 +20,33 @@
     <section>
       <div class="row"> 
         <div class="col-sm-4">
-        <label for="exampleDataList" class="form-label">Search for a City:</label>
-        <input class="form-control" list="datalistOptions" id="exampleDataList"
-        placeholder="Enter City to Search...">
+          <label for="exampleDataList" class="form-label">Search for a City:</label>
+          <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Enter City to Search...">
       <div class="d-grid gap-2 d-md-block">
         <button class="btn btn-primary" type="button">Search</button>
-        <ul class= "list-group">
-        </ul>
+          <ul class= "list-group">
+          </ul>
+        <div class= "col-sm-8">
+          <div class="row border border-success p-2 mb-2 ">
+            <div class="col-sm-12" id= "city-weather">
+              <placeholder>Current City Weather</placeholder>
+              <p id="dateCurr"></p>
+              <p id="imgCurr"></p>
+              <p> Temp:<span id="tempCurr"></span></p>
+              <p> Wind:<span id="windCurr"></span></p>
+              <p> Humidty:<span id="humidCurr"></span></p>
+            
       </div>
+   
 
-        <div>
-
-        </div>
     </section>
 
     <section>
       <!--add in one column to generate today's weather, this column willnhave the today datejs-->
       
-        <div class= "col-sm-8">
-            <div class="row border border-success p-2 mb-2">
-              <div class="col-sm-12" id= "city-weather">
-                <placeholder>Current City Weather</placeholder>
-              
-        </div>
+      
         
 
-      </div>
     </section>
 
     <section>
@@ -53,20 +54,40 @@
       <div class="container text-right" class="col-sm-12" id="future-forecast" >
         <h2>5-Day Forecast:</h2>
         <div class="row">
-          <div class="col border border-black border-success p-2 mb-2">
-            First Date
+          <div class="forecast col border border-black border-success p-2 mb-2">
+            <p id="date0"></p>
+            <p id="img0"></p>
+            <p>Temp:<span id="temp0"></span></p>
+            <p> Wind:<span id="wind0"></span></p>
+            <p>Humidty:<span id="humid0"></span></p>
           </div>
-          <div class="col border border-success p-2 mb-2 order-2">
-            Second Date
+          <div class="forecast col border border-success p-2 mb-2 order-2">
+            <p id="date1"></p>
+            <p id="img1"></p>
+            <p>Temp:<span id="temp1"></span></p>
+            <p> Wind:<span id="wind1"></span></p>
+            <p>Humidty:<span id="humid1"></span></p>
           </div>
-          <div class="col border border-success p-2 mb-2 order-3">
-            Third Date
+          <div class="forecast col border border-success p-2 mb-2 order-3">
+            <p id="date2"></p>
+            <p id="img2"></p>
+            <p> Temp:<span id="temp2"></span></p>
+            <p> Wind:<span id="wind2"></span></p>
+            <p> Humidty:<span id="humid2"></span></p>
           </div>
-          <div class="col border border-success p-2 mb-2 order-4">
-            Fourth Date
+          <div class="forecast col border border-success p-2 mb-2 order-4">
+            <p id="date3"></p>
+            <p id="img3"></p>
+            <p> Temp:<span id="temp3"></span></p>
+            <p> Wind:<span id="wind3"></span></p>
+            <p> Humidty:<span id="humid3"></span></p>
           </div>
-          <div class="col border border-success p-2 mb-2 order-5">
-            Fifth Date
+          <div class="forecast col border border-success p-2 mb-2 order-5">
+            <p id="date4"></p>
+            <p id="img4"></p>
+            <p> Temp:<span id="temp4"></span></p>
+            <p> Wind:<span id="wind4"></span></p>
+            <p> Humidty:<span id="humid4"></span></p>
           </div>
         </div>
       </div>
