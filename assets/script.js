@@ -2,6 +2,12 @@ var city=""
 var searchBtn= ".btn";
 var listGroup= "";
 var futureFore= $("#future-forecast");
+var currDate= $("#dateCurr");
+var currImg= $("#imgCurr");
+var currTemp= $("#tempCurr");
+var currWind= $("#windCurr");
+var curHumiduty= $("#humidCurr");
+
 
 //search for city results
 
