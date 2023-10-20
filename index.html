@@ -21,14 +21,14 @@
       <div class="row"> 
         <div class="col-sm-4">
           <label for="exampleDataList" class="form-label">Search for a City:</label>
-          <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Enter City to Search...">
+          <input class="form-control" list="datalistOptions" id="currCity" placeholder="Enter City to Search...">
       <div class="d-grid gap-2 d-md-block">
-        <button class="btn btn-primary" type="button">Search</button>
+        <button class="btn btn-primary" id="fetch-button" type="button">Search</button>
           <ul class= "list-group">
           </ul>
         <div class= "col-sm-8">
           <div class="row border border-success p-2 mb-2 ">
-            <div class="col-sm-12" id= "city-weather">
+            <div class="col-sm-12" id= "currentDay">
               <placeholder>Current City Weather</placeholder>
               <p id="dateCurr"></p>
               <p id="imgCurr"></p>
