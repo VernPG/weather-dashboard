@@ -1,43 +1,45 @@
 // var city = "";
-// var listGroup = "";
-// var futureFore = $("#future-forecast");
-// var currDate = $("#dateCurr");
-// var currImg = $("#imgCurr");
-// var currTemp = $("#tempCurr");
-// var currWind = $("#windCurr");
-// var curHumiduty = $("#humidCurr");
-// var currentDayDisplayEl = $("#currentDay");
-
-var weather = document.querySelector("ul");
+var listGroup = "";
+// var weatherCard = document.getElementById("weather-card");
+var weatherData = [];
 var fetchButton = document.getElementById("fetch-button");
 var currCity = document.getElementById("currCity");
 
-
-function getApi(lat,lon) {
-  console.log(lat)
-  console.log(lon)
+function getApi(lat, lon) {
+  console.log(lat);
+  console.log(lon);
   var requestUrl =
-    "https://api.openweathermap.org/data/2.5/forecast?lat="+lat+"&lon="+lon+"&appid=f2165315a927629b82c1512a361fb24c";
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&appid=f2165315a927629b82c1512a361fb24c";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
-      for (var i = 0; i < data.length; i++) {
-        var listItem = document.createElement("li");
-        listItem.textContent = data[i].html_url;
-        weather.appendChild(listItem);
-        console.log(data)
+      console.log("DATA: ", data);
+      // console.log("DATA: ", data.city.name);
+      for (var i = 0; i < data.list.length; i += 8) {
+        // var listItem = document.createElement("li");
+        console.log("Loop: " + i, data.list[i]);
+        displayWeatherData(data.list[i]);
+        // listItem.textContent = data.list[i].main.humidity;
+        // console.log("PRV DATA: ", data.list[i].main.humidity);
+        // weatherCard.appendChild(listItem);
+        // console.log(data);
       }
     });
 }
 
 function getLocation() {
-  var city = currCity.value
-  console.log(city)
+  var city = currCity.value;
+  console.log(city);
   var requestUrl =
-    "http://api.openweathermap.org/geo/1.0/direct?q="+city+"&appid=f2165315a927629b82c1512a361fb24c";
+    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    city +
+    "&appid=f2165315a927629b82c1512a361fb24c";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -47,31 +49,67 @@ function getLocation() {
       //   var listItem = document.createElement("li");
       //   listItem.textContent = data[i].html_url;
       //   weather.appendChild(listItem);
-        // console.log(data[0].lat)
-        getApi(data[0].lat,data[0].lon)
-      }
-    )
+      // console.log(data[0].lat)
+      getApi(data[0].lat, data[0].lon);
+    });
 }
-    // getLocation()
-
+// getLocation()
 
 fetchButton.addEventListener("click", getLocation);
 
-//call the current weather
-// var today = dayjs().format("MMM DD, YYYY [at] hh:mm a");
-// function displayCurrentDay() {
-//   currentDayDisplayEl.text(today);
+// function displayData(weatherCard) {
+//   var searchedCity = document.createElement("div");
+//   searchedCity.classList.add("city");
 // }
 
-// displayCurrentDay();
-// setInterval(displayCurrentDay, 1000);
+function displayData() {
+  let url =
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&appid=f2165315a927629b82c1512a361fb24c";
+
+  fetch(url).then(function (response) {
+    response
+      .json()
+      .then(function (data) {
+        console.log(data);
+        return data;
+      })
+      .then((data) => {
+        data.forEach((item) => {
+          displayWeatherData(item);
+        });
+      });
+  });
+}
+function displayWeatherData(data) {
+  var city = document.getElementById("weather-card");
+  var div = document.createElement("div");
+  div.className = "weather-card";
+  div.innerHTML = `<p>${data.dt_txt}</p>
+                   <p>${data.weather[0].description}</p>
+                   <p>Temp: ${data.main.temp}</p>
+                   <p>Wind: ${data.wind.speed}</p>
+                   <p>Humidity: ${data.main.humidity}</p>`;
+  city.appendChild(div);
+}
 
 // get api
 // var apiKey = "f2165315a927629b82c1512a361fb24c";
+//local storage
+// fetchButton.addEventListener("click", function(event){
+//   event.preventDefault();
 
+//   var dataListOptions ={
+//     city: city.value
+// };
 
-//search for city results
+// localStorage.setItem("dataListOptions", JSON.stringify(dataListOptions));
+// renderMessage();
+// });
+// function renderMessage(){
+//   var city = JSON.parse(localStorage.getItem("dataListOptions"));
 
-//display 5 day outlook
-
-//save search history
+// }
