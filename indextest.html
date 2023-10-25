@@ -16,42 +16,26 @@
         <h1>Weather Dashboard</h1>
       </div>
     </header>
-    <!--Sidebar ONE COLOUMN LAYOUT with form and search button-->
-    <section>
-      <div class="weather-container row"> 
-        <div class="col-sm-4">
-          <label for="exampleDataList" class="form-label">Search for a City:</label>
-          <input class="form-control" list="datalistOptions" id="currCity" placeholder="Enter City to Search...">
-      <div class="d-grid gap-2 d-md-block">
-        <button class="btn btn-primary" id="fetch-button" type="button">Search</button>
-          <ul class= "list-group">
-          </ul>
-        <div class= "searched-city col-sm-8">
-          <div class="row border border-success p-2 mb-2 ">
-            <div class="weather-card col-sm-12" id= "currentDay">
-              <placeholder>Current City Weather</placeholder>
-              <p id="dateCurr"></p>
-              <p id="imgCurr"></p>
-              <p> Temp:<span id="tempCurr"></span></p>
-              <p> Wind:<span id="windCurr"></span></p>
-              <p> Humidty:<span id="humidCurr"></span></p>
-            
-      </div>
-   
+    <label for="weather-container" class="form-label">Search for a City</label>
+    <input
+      class="form-control"
+      list="datalistOptions"
+      id="currCity"
+      placeholder="Type to search..."
+    />
+    <button type="button" id="fetch-button" class="btn btn-primary">
+      Search
+    </button>
+    <datalist id="datalistOptions">
+      <option class="city">Minneapolis</option>
+      <h3 class="message"></h3>
+    </datalist>
+ 
 
-    </section>
-
-    <section>
-      <!--add in one column to generate today's weather, this column willnhave the today datejs-->
-      
-      
-        
-
-    </section>
 
     <section>
       <!--five column layout for forecast-->
-      <div class="container text-right" class="col-sm-12" id="future-forecast" >
+      <div class="container text-right" class="col-sm-12" id="weather-card" >
         <h2>5-Day Forecast:</h2>
         <div class="row">
           <div class="forecast col border border-black border-success p-2 mb-2">
@@ -100,5 +84,5 @@
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
     crossorigin="anonymous"
   ></script>
-  <script src="./assets/script.js"></script>
+  <script src="./assets/script1.js"></script>
 </html>
