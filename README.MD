@@ -1,10 +1,7 @@
 # Server-Side APIs: Weather Dashboard
 
   ## Description 
-
-
-## Usage
-
+  A weather dashboard created to easily display a five-day forecast using openweathermap.org API.
 
   ## Table of Contents
   * [Installation](#installation)
@@ -40,7 +37,7 @@ THEN I am again presented with current and future conditions for that city
 
   ** [Repo can be found HERE](https://github.com/VernPG/weather-dashboard.git)
 
-  ** [Weather-Dashboard URL found HERE]()
+  ** [Weather-Dashboard URL found HERE](https://vernpg.github.io/weather-dashboard/)
 
 >
 
