@@ -30,9 +30,13 @@
       <option class="city">Minneapolis</option>
       <h3 class="message"></h3>
     </datalist>
+<!-- 
+    <div class="text-center"  id="weather-card" > -->
+      <div class="row weather-container">
+        <div class="card" id="today-weather" style="width: 18rem;">
 
-    <div class="card text-center"  id="weather-card">
-      <div class="row" id="today-weather">
+
+        </div>
         <!-- <div class="col-sm-8">
           Today's Weather
           <p id="date1">Date</p>
@@ -42,7 +46,10 @@
           <p>Humidity:</p>
         </div> -->
       </div>
-      <div class="row" id="forecast-weather">
+      <div id="forecast-weather" class="weather-container" >
+
+      </div>
+     
         <!-- <div class="col-sm-3">
           <p id="date2">Date</p>
           <p>Description</p>
@@ -75,7 +82,7 @@
           <p>Humidity:</p>
         </div> -->
       </div>
-    </div>
+    <!-- </div> -->
   </body>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script

@@ -13,7 +13,7 @@ function getApi(lat, lon) {
     lat +
     "&lon=" +
     lon +
-    "&appid=f2165315a927629b82c1512a361fb24c";
+    "&units=imperial&appid=f2165315a927629b82c1512a361fb24c";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -24,7 +24,7 @@ function getApi(lat, lon) {
       for (var i = 0; i < data.list.length; i += 8) {
         // var listItem = document.createElement("li");
         console.log("Loop: " + i, data.list[i]);
-        displayWeatherData(data.list[i]);
+        displayWeatherData(data.list[i], i);
         // listItem.textContent = data.list[i].main.humidity;
         // console.log("PRV DATA: ", data.list[i].main.humidity);
         // weatherCard.appendChild(listItem);
@@ -39,7 +39,7 @@ function getLocation() {
   var requestUrl =
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
     city +
-    "&appid=f2165315a927629b82c1512a361fb24c";
+    "&units=imperial&appid=f2165315a927629b82c1512a361fb24c";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -78,8 +78,10 @@ function displayData() {
         return data;
       })
       .then((data) => {
-        data.forEach((item) => {
-          displayWeatherData(item);
+        data.map((item, i) => {
+          console.log(i)
+            displayWeatherData(item, i);
+          
         });
       });
   });
@@ -88,8 +90,9 @@ function displayWeatherData(data) {
   var city = document.getElementById("weather-card");
   var div = document.createElement("div");
   div.className = "weather-card";
-  div.innerHTML = ` <p${data.dt_txt} id="date0" ></p$>
-                    <p i${data.weather[0].description}></p>
+  div.innerHTML = ` <p${data.dt_txt} id="date0" ></p>
+                    <p${data.weather[0].icon} id="img0" ></p>
+                    <p i${data.weather[0].description} id="des0"><span></p>
                     <p>Temp:${data.main.temp}<span id="temp0"></span></p>
                     <p> Wind:${data.wind.speed}<span id="wind0"></span></p>
                     <p>Humidty:${data.main.humidity}<span id="humid0"></span></p>`;

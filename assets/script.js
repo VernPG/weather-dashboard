@@ -1,5 +1,6 @@
 // var city = "";
 var listGroup = "";
+
 // var weatherCard = document.getElementById("weather-card");
 var weatherData = [];
 var fetchButton = document.getElementById("fetch-button");
@@ -90,16 +91,41 @@ function displayWeatherData(data, i) {
   var todayDiv = document.getElementById('today-weather');
   var forecastDiv = document.getElementById('forecast-weather')
   var div = document.createElement("div")
-  div.className = i === 0 ? "col-sm-8" : "col-sm-3"
-  div.innerHTML = i === 0 ? "Today's Weather" : ''
+  // div.setAttribute("style", "width: 18rem;")
+
+  div.className = i === 0 ? "col-sm-8 " : "forecast-weather";
+  div.innerHTML = i === 0 ? "Five Day Forecast" : ''
  console.log(i)
 
- data.temp + 39 * 5
-  
+ 
   //this gets repeated for each p tag
+  var nameEl = document.createElement("p")
+  nameEl.innerHTML = `City Name: ${currCity.value}`;
+  div.appendChild(nameEl)
+
   var dateEl = document.createElement("p")
   dateEl.innerHTML = data.dt_txt
   div.appendChild(dateEl)
+
+  var descriptionEl = document.createElement("p")
+  descriptionEl.innerHTML = data.weather[0].description
+  div.appendChild(descriptionEl)
+
+  var tempEl = document.createElement("p")
+  tempEl.innerHTML = `Temp: ${data.main.temp}°F`
+  div.appendChild(tempEl)
+
+  var windEl = document.createElement("p")
+  windEl.innerHTML = data.wind.speed
+  div.appendChild(windEl)
+
+  var imgEl = document.createElement("img")
+  imgEl.setAttribute("src", `https://openweathermap.org/img/w/${data.weather[0].icon}.png`)
+  div.appendChild(imgEl)
+
+  var humidityEl = document.createElement("p")
+  humidityEl.innerHTML = data.main.humidity
+  div.appendChild(humidityEl)
   // div.innerHTML = `<p>${data.dt_txt}</p>
   //                  <p>${data.weather[0].description}</p>
   //                  <p>Temp: ${data.main.temp}</p>
