@@ -11,29 +11,34 @@
     />
   </head>
   <body>
-    <header class="container-fluid bg-dark text-light mb-5 p-3">
-      <div class="d-flex align-items-center">
+    <header class="container-fluid">
+      <div class="text-align">
         <h1>Weather Dashboard</h1>
       </div>
     </header>
-    <label for="weather-container" class="form-label">Search for a City</label>
+    <label  for="weather-container" style="font-size: 20px;" class="form-label">Search for a City</label>
     <input
       class="form-control"
       list="datalistOptions"
       id="currCity"
       placeholder="Type to search..."
+      style="background-color: rgb(185, 177, 59); border-radius: 5px;"
     />
-    <button type="button" id="fetch-button" class="btn btn-primary">
+    <button onclick="saveCity" type="button" id="fetch-button" class="btn btn-secondary">
       Search
     </button>
     <datalist id="datalistOptions">
       <option class="city">Minneapolis</option>
+      <option class="city">Los Angeles</option>
+      <option class="city">Chicago</option>
+      <option class="city">New York</option>
+      <option class="city">Portland</option>
       <h3 class="message"></h3>
     </datalist>
 <!-- 
     <div class="text-center"  id="weather-card" > -->
       <div class="row weather-container">
-        <div class="card" id="today-weather" style="width: 18rem;">
+        <div class="card" id="today-weather">
 
 
         </div>
